@@ -1,4 +1,4 @@
-package com.itheima.pojo;
+package org.example.pojo;
 
 import lombok.Data;
 
@@ -13,6 +13,7 @@ public class Result {
     private Integer code; //编码：1成功，0为失败
     private String msg; //错误信息
     private Object data; //数据
+
 
     public static Result success() {
         Result result = new Result();
