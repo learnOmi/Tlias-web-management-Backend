@@ -14,6 +14,8 @@ public class Result {
     private String msg; //错误信息
     private Object data; //数据
 
+    // 私有化构造函数，强制使用静态工厂方法
+    private Result() {}
 
     public static Result success() {
         Result result = new Result();
