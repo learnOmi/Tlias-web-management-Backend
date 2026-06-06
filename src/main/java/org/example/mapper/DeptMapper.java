@@ -5,6 +5,9 @@ import org.example.pojo.Dept;
 
 import java.util.List;
 
+/**
+ * 部门管理Dao
+ */
 @Mapper
 public interface DeptMapper {
 
