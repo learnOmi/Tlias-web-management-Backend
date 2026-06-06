@@ -5,9 +5,7 @@ import org.example.pojo.Dept;
 import org.example.pojo.Result;
 import org.example.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,50 @@ public class DeptController {
         log.info("查询全部部门数据");
         List<Dept> deptList = deptService.findAll();
         return Result.success(deptList);
+    }
+
+    /**
+     * 删除部门 - 省略@RequestParam (前端传递的请求参数名与服务端方法形参名一致) [推荐]
+     */
+    @DeleteMapping
+    public Result delete(Integer id){
+        //System.out.println("根据ID删除部门: " + id);
+        log.info("根据ID删除部门: {}", id);
+        deptService.deleteById(id);
+        return Result.success();
+    }
+
+    /**
+     * 新增部门
+     */
+    @PostMapping
+    public Result add(@RequestBody Dept dept){
+        //System.out.println("新增部门: " + dept);
+        log.info("新增部门:{}", dept);
+        deptService.add(dept);
+        return Result.success();
+    }
+
+    /**
+     * 根据ID查询部门
+     */
+    @GetMapping("/{id}")
+    public Result getInfo(@PathVariable Integer id){
+        //System.out.println("根据ID查询部门 : " + id);
+        log.info("根据ID查询部门: {}", id);
+        Dept dept = deptService.getById(id);
+        return Result.success(dept);
+    }
+
+    /**
+     * 修改部门
+     */
+    @PutMapping
+    public Result update(@RequestBody Dept dept){
+        //System.out.println("修改部门: " + dept);
+        log.info("修改部门:{}", dept);
+        deptService.update(dept);
+        return Result.success();
     }
 
 }

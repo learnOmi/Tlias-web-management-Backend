@@ -1,12 +1,14 @@
 spring:
+  profiles:
+    active: local
   application:
     name: tlias-web-management
   #配置数据库的连接信息
   datasource:
     url: jdbc:mysql://localhost:3306/tlias
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 1234
+    username: ff***
+    password: ff***
   servlet:
     multipart:
       #最大单个文件大小
