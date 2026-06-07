@@ -8,4 +8,5 @@ public interface EmpService {
 
     PageResult<Emp> getByPage(EmpQueryParam empQueryParam);
 
+    void save(Emp emp) throws Exception;
 }
