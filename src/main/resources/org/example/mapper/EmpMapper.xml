@@ -18,7 +18,7 @@
             </if>
         </where>
         order by e.update_time desc
-        limit #{page}, #{pageSize}
+        <!-- limit #{page}, #{pageSize} -->
     </select>
 
 </mapper>

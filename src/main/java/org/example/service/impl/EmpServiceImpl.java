@@ -1,5 +1,7 @@
 package org.example.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.example.mapper.EmpMapper;
 import org.example.pojo.Emp;
 import org.example.pojo.EmpQueryParam;
@@ -19,6 +21,8 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public PageResult<Emp> getByPage(EmpQueryParam empQueryParam) {
 
+        /*
+
         if (empQueryParam.getPage() == null || empQueryParam.getPage() <= 0) {
             empQueryParam.setPage(1);
         }
@@ -30,6 +34,13 @@ public class EmpServiceImpl implements EmpService {
         Long total = empMapper.selectCount();
         List<Emp> resultList = empMapper.selectByPage(empQueryParam);
 
-        return new PageResult<>(total, resultList);
+         */
+
+        // 使用PageHelper实现分页查询
+        PageHelper.startPage(empQueryParam.getPage(), empQueryParam.getPageSize());
+        List<Emp> resultList = empMapper.selectByPage(empQueryParam);
+        Page<Emp> page = (Page<Emp>) resultList;
+
+        return new PageResult<>(page.getTotal(), page.getResult());
     }
 }
