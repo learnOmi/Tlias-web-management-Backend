@@ -76,4 +76,11 @@ public class EmpServiceImpl implements EmpService {
         }
     }
 
+    @Transactional(rollbackFor = {Exception.class})
+    @Override
+    public void deleteByIds(List<Integer> ids) {
+        empMapper.deleteByIds(ids);
+        empExprMapper.deleteByEmpIds(ids);
+    }
+
 }

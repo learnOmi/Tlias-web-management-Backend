@@ -21,4 +21,11 @@
         <!-- limit #{page}, #{pageSize} -->
     </select>
 
+    <delete id="deleteByIds">
+        delete from emp where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
 </mapper>

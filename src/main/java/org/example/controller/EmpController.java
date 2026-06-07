@@ -9,6 +9,8 @@ import org.example.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 员工管理Controller
  */
@@ -37,6 +39,16 @@ public class EmpController {
     public Result save(@RequestBody Emp emp) throws Exception {
         log.info("新增员工: {}", emp);
         empService.save(emp);
+        return Result.success();
+    }
+
+    /**
+     * 删除员工
+     */
+    @DeleteMapping
+    public Result delete(@RequestParam List<Integer> ids){
+        log.info("删除员工: {}", ids);
+        empService.deleteByIds(ids);
         return Result.success();
     }
 
