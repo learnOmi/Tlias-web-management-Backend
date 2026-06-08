@@ -6,6 +6,7 @@ import org.example.pojo.EmpQueryParam;
 import org.example.pojo.PageResult;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 员工DAO
@@ -46,4 +47,15 @@ public interface EmpMapper {
      * 修改员工信息
      */
     void updateById(Emp emp);
+
+    /**
+     * 统计员工职位人数
+     */
+    List<Map<String, Object>> countEmpJobData();
+
+    /**
+     * 统计员工性别人数
+     */
+    List<Map<String, Object>> countEmpGenderData();
+
 }
