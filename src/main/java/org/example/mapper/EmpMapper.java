@@ -19,6 +19,11 @@ public interface EmpMapper {
     List<Emp> selectByPage(EmpQueryParam empQueryParam);
 
     /**
+     * 查询员工信息和工作经历信息
+     */
+    Emp selectEmpExpById(Integer id);
+
+    /**
      * 查询员工总记录数
      */
     @Select("select count(*) from emp left join dept on emp.dept_id = dept.id")
@@ -32,5 +37,13 @@ public interface EmpMapper {
             " values (#{username}, #{name}, #{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
     void insert(Emp emp);
 
+    /**
+     * 删除员工
+     */
     void deleteByIds(List<Integer> ids);
+
+    /**
+     * 修改员工信息
+     */
+    void updateById(Emp emp);
 }
