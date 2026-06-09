@@ -74,6 +74,12 @@
             <version>0.4.0</version>
             <scope>compile</scope>
         </dependency>
+        <!--JWT-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
     </dependencies>
 
 	<build>
