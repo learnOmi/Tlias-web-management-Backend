@@ -21,7 +21,7 @@
         <result column="update_time" property="updateTime"/>
 
         <!--封装工作经历信息-->
-        <collection property="exprList" ofType="org.example.pojo.EmpExpr">
+        <collection property="empExprs" ofType="org.example.pojo.EmpExpr">
             <id column="ee_id" property="id"/>
             <result column="ee_empid" property="empId"/>
             <result column="ee_begin" property="begin"/>

@@ -1,9 +1,9 @@
 package org.example.controller;
 
-import com.itheima.pojo.PageResult;
-import com.itheima.pojo.Result;
-import com.itheima.pojo.Student;
-import com.itheima.service.StudentService;
+import org.example.pojo.PageResult;
+import org.example.pojo.Result;
+import org.example.pojo.Student;
+import org.example.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
